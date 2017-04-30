@@ -33,7 +33,7 @@ function renderBubble(mouseX, mouseY, selection) {
                         </div>`;
 
   const instance = new Mark(window.getSelection().baseNode);
-  instance.mark(selection.term, {
+  instance.mark(selection.search_term, {
     "element": "span",
     "className": "us-highlight",
     "separateWordSearch": false
