@@ -27,3 +27,15 @@
   font-size: 12px;
   margin-top: 46px;
 }
+
+#selected-term {
+  float: left;
+}
+
+#close-tooltip {
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
