@@ -29,7 +29,7 @@ $(document).ready(function() {
     }
   })
 
-  $('body').on('click', '#see-more-button', function() {
+  $('body').on('click', '.see-more-button', function() {
     const data = window.selectionData;
     const term = data.term
     const definition = data.definition;
