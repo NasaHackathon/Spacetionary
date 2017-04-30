@@ -11,6 +11,22 @@ var sideBarHtmlString = "<div id='sidebar'><div id='term'><h1>Sun</h1> </div><di
 var sidebar;
 
 $(document).ready(function() {
+
+  var body = $('body').text();
+  // console.log('BODY ', body);
+  // console.log('BODY TEXT', body[0].innerText);
+  console.log('running request');
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:1337/api/user/words',
+    data: {body: body},
+    success: function(result) {
+      console.log('result in client', result);
+    }
+  })
+
+
+  
   var sidebar;
   $.ajax({
     url: chrome.extension.getURL('sideBar.html'),
