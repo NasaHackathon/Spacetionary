@@ -18,6 +18,9 @@ document.addEventListener('mousedown', function (e) {
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
   const selectionData = selection;
+  window.selectionData = selectionData;
+
+  // console.log('selectioData window', window.selectionData);
   selectionData.definition = selectionData.definition.length > 96 ?
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
