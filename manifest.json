@@ -8,9 +8,19 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "css": ["styles.css", "src/main.css"],
-      "js": ["mark.js", "jquery.js", "highlight.js", 
-      "src/tooltip.js", "src/queryHighlightedWord.js","src/highlightWord.js"] 
+      "css": [
+        "quill.css",
+        "src/main.css"
+      ],
+      "js": [
+        "mark.js",
+        "jquery.js",
+        "highlight.js", 
+        "src/tooltip.js",
+        "src/queryHighlightedWord.js",
+        "src/highlightWord.js",
+        "quill.js"
+      ] 
     }
   ],
   "icons": {
