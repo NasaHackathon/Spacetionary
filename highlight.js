@@ -1,8 +1,18 @@
 window.terms = [
-  "Mars", "Moon", "Earth"
+  "Mars", "Moon", "Earth", "planet"
 ]
 
-// console.log('elemtns arr', document.body.innerText.split(' '));
+
+var context = document.querySelector("body");
+console.log('context', context);
+var instance = new Mark(context);
+console.log('instance', instance);
+
+
+function handleSetQuery(findWords) {
+    instance.mark(findWords);
+}
+
 
 
 
@@ -19,9 +29,17 @@ $(document).ready(function() {
   $.ajax({
     method: 'POST',
     url: 'http://localhost:1337/api/user/words',
+    // url: 'https://fierce-hamlet-13380.herokuapp.com/api/user/words', 
     data: {body: body},
     success: function(result) {
       console.log('result in client', result);
+      window.pageResults = result;
+      window.terms = window.pageResults.reduce((acc, curr) => {
+        acc.push(curr.search_term);
+        return acc;
+      }, [])
+
+      handleSetQuery(window.terms);
     }
   })
 
