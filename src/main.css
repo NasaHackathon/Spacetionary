@@ -1,5 +1,5 @@
 .selection-bubble {
-  height: 200px;
+  height: 183px;
   width: 200px;
   visibility: hidden;
   position: absolute;
@@ -21,7 +21,21 @@
 }
 
 #see-more-button {
+  color: blue;
+  cursor: pointer;
   float: right;
   font-size: 12px;
   margin-top: 46px;
+}
+
+#selected-term {
+  float: left;
+}
+
+#close-tooltip {
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
