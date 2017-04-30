@@ -190,3 +190,16 @@
 .form-save-button {
   color: #0095FF;
 }
+
+
+.us-highlight {
+    /*background: orange;*/
+    color: #FFF;
+    padding: 2px;
+    z-index: 9999;
+
+    /* trying to get it to work like medium */ 
+    background: linear-gradient(to bottom,#0095FF, #0095FF);
+    
+}
+
