@@ -31,10 +31,15 @@ script.src= 'https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.9.0/mark.js';
 
   handleSetQuery(words);
 /*
-script.onload = () => {
-  // document.addEventListener('DOMContentLoaded', function () {
-  var context = document.querySelector("body");
-  console.log('context', context);
+
+
+
+// windows.getCurrent(function(win)
+// {
+//   console.log('this is the win', win);
+// });
+
+
   var instance = new Mark(context);
   console.log('instance', instance);
   var words = ['moon', 'blue'];
