@@ -12,7 +12,7 @@ document.addEventListener('mouseup', function (e) {
 
 // Close the bubble when we click on the screen.
 document.addEventListener('mousedown', function (e) {
-  bubbleDOM.style.visibility = 'hidden';
+  // bubbleDOM.style.visibility = 'hidden';
 }, false);
 
 // Move that bubble to the appropriate location.
@@ -23,7 +23,7 @@ function renderBubble(mouseX, mouseY, selection) {
                              selectionData.definition;
   bubbleDOM.innerHTML = `<h3>${selection.term}</h3>` +
                         `<p>${selection.definition}</p>` +
-                        '<a id="see-more-button" href="#">See More...</a>' +
+                        '<div id="see-more-button">See More...</div>' +
                         `<img src="${selection.imageSource}"/>`;
   bubbleDOM.style.top = mouseY - 50 + 'px';
   bubbleDOM.style.left = mouseX - 50 + 'px';

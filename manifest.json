@@ -1,16 +1,20 @@
 {
-  "name": "Energy Valley",
-  "description": "Define highlighted scientific term.",
-  "version": "2.0",
+  "name": "Find scientific words",
+  "description": "its the best",
+  "version": "1.0",
   "permissions": [
-    "activeTab"
+    "tabs", "http://*/*", "https://*/*"
   ],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "css": ["src/main.css"],
-      "js": ["src/tooltip.js", "src/queryHighlightedWord.js"]
+      "css": ["styles.css", "src/main.css"],
+      "js": ["jquery.js", "highlight.js", 
+      "src/tooltip.js", "src/queryHighlightedWord.js"]
     }
   ],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "web_accessible_resources": [
+    "*"
+  ]
 }
