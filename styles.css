@@ -98,9 +98,9 @@ div.tab button.active {
   display: flex;
   flex-direction: row;
   /*background-color: orange;*/
-  
+
 }
-.upvote {
+.upvote, .downvote {
   height: 30px;
   width: 30px;
   float: left;
