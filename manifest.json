@@ -18,7 +18,6 @@
         "highlight.js", 
         "src/tooltip.js",
         "src/queryHighlightedWord.js",
-        "src/highlightWord.js",
         "src/voting-system.js",
         "quill.js"
       ]

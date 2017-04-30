@@ -1,9 +1,21 @@
 window.terms = [
-  "Mars", "Moon", "Earth"
+  "Mars", "Moon", "Earth", "planet"
 ]
 
-// console.log('elemtns arr', document.body.innerText.split(' '));
 
+var context = document.querySelector("body");
+console.log('context', context);
+var instance = new Mark(context);
+console.log('instance', instance);
+
+
+function handleSetQuery(findWords) {
+    // instance.mark(findWords);
+  instance.mark(findWords, {
+    "element": "span",
+    "className": "us-highlight",
+  });
+}
 
 function init_tabs() {
   $('body').on('click', '.tab-ctrl', (e) => {
@@ -14,13 +26,33 @@ function init_tabs() {
   })
 }
 
-
-
 //sidebar
 var sideBarHtmlString = "<div id='sidebar'><div id='term'><h1>Sun</h1> </div><div id='pic'>PICTURE </div><div id='def'><h3>The definition of the sun is this massive red ball whats gucci </h3></div></div>"
 var sidebar;
 
 $(document).ready(function() {
+
+  var body = $('body').text();
+  // console.log('BODY ', body);
+  // console.log('BODY TEXT', body[0].innerText);
+  console.log('running request');
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:1337/api/user/words',
+    data: {body: body},
+    success: function(result) {
+      console.log('result in client', result);
+      window.pageResults = result;
+      window.terms = window.pageResults.reduce((acc, curr) => {
+        acc.push(curr.search_term);
+        return acc;
+      }, [])
+
+      handleSetQuery(window.terms);
+    }
+  })
+
+  
   init_tabs();
 
   var sidebar;
