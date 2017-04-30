@@ -21,6 +21,10 @@ function renderBubble(mouseX, mouseY, selection) {
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
 
+  function getNumberVotesBetween(min, max) {
+    return Math.floor(Math.random() * max) + min;
+  }
+
   function getOthers() {
     let max = 10;
     let out = '';
@@ -33,8 +37,8 @@ function renderBubble(mouseX, mouseY, selection) {
         </div>
         <div class="btn-bar-hg-tooltip">
           <div class="btn-bar-hg-tooltip-classification">
-            <div class="btn-hg-tooltip see-more-button">80 👍</div>
-            <div class="btn-hg-tooltip see-more-button">30 👎</div>
+            <div data-voteup="${getNumberVotesBetween(50,100)}" class="btn-hg-tooltip see-more-button btn-vote-up">80 👍</div>
+            <div data-votedown="${getNumberVotesBetween(0,50)}" class="btn-hg-tooltip see-more-button btn-vote-down">30 👎</div>
           </div>
           <div class="btn-hg-tooltip hg-authour">luizstacio@gmail.com</div>
         </div>
@@ -53,6 +57,9 @@ function renderBubble(mouseX, mouseY, selection) {
         <div class="hg-tooltip-content">
           <h3 id="select-term">${selection.search_term}</h3>
           <p>${selection.definition}</p>
+          <div style="text-align: center;">
+            <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57723/globe_west_2048.jpg" style="max-width: 100%; height: 280px;"/>
+          </div>
         </div>
         <div class="btn-bar-hg-tooltip">
           <div class="btn-bar-hg-tooltip-classification">
@@ -109,5 +116,25 @@ function renderBubble(mouseX, mouseY, selection) {
     e.stopPropagation();
     $('.tab').hide();
     $('.tab[data-tab=3]').show();
+  });
+
+  $(bubbleDOM).on('click','.btn-vote-up', function (e) {
+    e.stopPropagation();
+    const btn = $(this);
+    let voteup = btn.data('voteup');
+
+    btn.data('voteup', ++voteup);
+
+    btn.text(`${voteup} 👍`);
+  });
+
+  $(bubbleDOM).on('click','.btn-vote-down', function (e) {
+    e.stopPropagation();
+    const btn = $(this);
+    let votedown = btn.data('votedown');
+    
+    btn.data('votedown', --votedown);
+    
+    btn.text(`${votedown} 👎`);
   });
 }

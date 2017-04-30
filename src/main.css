@@ -21,7 +21,7 @@
 
 .hg-tooltip .hg-tooltip-content {
   padding: 25px 15px 10px 15px;
-  flex: 1;
+  max-width: 100%;
 }
 
 .hg-tooltip .btn-hg-tooltip {
@@ -90,11 +90,6 @@
   text-transform: capitalize;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-}
-
-.hg-tooltip img {
-  height: 60px;
-  width: 60px;
 }
 
 .hg-tooltip p {
