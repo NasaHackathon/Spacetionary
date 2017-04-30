@@ -20,17 +20,75 @@ function renderBubble(mouseX, mouseY, selection) {
   selectionData.definition = selectionData.definition.length > 96 ?
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
-  bubbleDOM.innerHTML = `<div class="selection-bubble-content">
-                          <h3 id="select-term">${selection.search_term}</h3>
-                          <p>${selection.definition}</p>
-                         </div>
-                         <div class="btn-bar-hg-tooltip">
-                          <div class="btn-bar-hg-tooltip-classification">
-                            <div class="btn-hg-tooltip see-more-button">👍</div>
-                            <div class="btn-hg-tooltip see-more-button">👎</div>
-                          </div>
-                          <div class="btn-hg-tooltip see-more-button">See more...</div>
-                        </div>`;
+
+  function getOthers() {
+    let max = 10;
+    let out = '';
+
+    while(--max) {
+      out += `<div class="hg-other-container">
+        <div class="hg-tooltip-content">
+          <h3 id="select-term">${selection.search_term}</h3>
+          <p>${selection.definition}</p>
+        </div>
+        <div class="btn-bar-hg-tooltip">
+          <div class="btn-bar-hg-tooltip-classification">
+            <div class="btn-hg-tooltip see-more-button">80 👍</div>
+            <div class="btn-hg-tooltip see-more-button">30 👎</div>
+          </div>
+          <div class="btn-hg-tooltip hg-authour">luizstacio@gmail.com</div>
+        </div>
+      </div>`
+    }
+
+    return out;
+  }
+
+  bubbleDOM.innerHTML = (
+     `<div class="tool-bar-hg-tooltip">
+        <div data-tab="1" class="tab-ctrl btn-tool-bar active">Geral</div>
+        <div data-tab="2" class="tab-ctrl btn-tool-bar">Other descriptions</div>
+      </div>
+      <div data-tab="1" class="tab tab-container">
+        <div class="hg-tooltip-content">
+          <h3 id="select-term">${selection.search_term}</h3>
+          <p>${selection.definition}</p>
+        </div>
+        <div class="btn-bar-hg-tooltip">
+          <div class="btn-bar-hg-tooltip-classification">
+            <div class="btn-hg-tooltip see-more-button">120 👍</div>
+            <div class="btn-hg-tooltip see-more-button">30 👎</div>
+          </div>
+          <div class="btn-hg-tooltip see-more-button">See more...</div>
+        </div>
+      </div>
+      <div data-tab="2" class="tab tab-container">
+        <div class="hg-others-container">
+          ${getOthers()}
+        </div>
+        <div class="btn-bar-hg-tooltip">
+          <div class="btn-hg-tooltip hg-create-description">Create a new description</div>
+        </div>
+      </div>
+      <div data-tab="3" class="tab tab-container description-container">
+        <div class="description-container-content">
+          <input placeholder="Title" value="${selection.search_term}" class="hg-input" disabled="true">
+          <div class="hg-text-editor">
+            <div id="hg-editor">
+              ${selection.definition}
+            </div>
+          </div>
+        </div>
+        <div class="btn-bar-hg-tooltip">
+          <div class="btn-hg-tooltip form-cancel-button">Cancel</div>
+          <div class="btn-hg-tooltip form-save-button">Save</div>
+        </div>
+      </div>`
+  );
+
+  const quill = new Quill('#hg-editor', {
+    theme: 'snow'
+  });
 
   const instance = new Mark(window.getSelection().baseNode);
   instance.mark(selection.search_term, {
@@ -43,4 +101,13 @@ function renderBubble(mouseX, mouseY, selection) {
   bubbleDOM.style.left = mouseX + 'px';
   bubbleDOM.style.transform = 'translateX(-50%)';
   bubbleDOM.style.visibility = 'visible';
+
+  $('.tab:not([data-tab=1])').hide();
+  $('.tab-ctrl:not([data-tab=1])').removeClass('active');
+  
+  $(bubbleDOM).on('click', '.hg-create-description', (e) => {
+    e.stopPropagation();
+    $('.tab').hide();
+    $('.tab[data-tab=3]').show();
+  });
 }

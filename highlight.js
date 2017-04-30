@@ -10,9 +10,21 @@ console.log('instance', instance);
 
 
 function handleSetQuery(findWords) {
-    instance.mark(findWords);
+    // instance.mark(findWords);
+  instance.mark(findWords, {
+    "element": "span",
+    "className": "us-highlight",
+  });
 }
 
+function init_tabs() {
+  $('body').on('click', '.tab-ctrl', (e) => {
+    $('.tab').hide();
+    $(`.tab[data-tab=${$(e.target).data('tab')}]`).show();
+    $('.tab-ctrl').removeClass('active');
+    $(e.target).addClass('active');
+  })
+}
 
 //sidebar
 var sideBarHtmlString = "<div id='sidebar'><div id='term'><h1>Sun</h1> </div><div id='pic'>PICTURE </div><div id='def'><h3>The definition of the sun is this massive red ball whats gucci </h3></div></div>"
@@ -41,6 +53,8 @@ $(document).ready(function() {
   })
 
   
+  init_tabs();
+
   var sidebar;
   $.ajax({
     url: chrome.extension.getURL('sideBar.html'),
