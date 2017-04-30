@@ -21,6 +21,8 @@
 }
 
 #see-more-button {
+  color: blue;
+  cursor: pointer;
   float: right;
   font-size: 12px;
   margin-top: 46px;
