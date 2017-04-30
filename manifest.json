@@ -10,7 +10,7 @@
       "matches": ["http://*/*", "https://*/*"],
       "css": ["styles.css", "src/main.css"],
       "js": ["mark.js", "jquery.js", "highlight.js",
-      "src/tooltip.js", "src/queryHighlightedWord.js","src/highlightWord.js", "src/voting-system.js"]
+      "src/tooltip.js", "src/queryHighlightedWord.js", "src/voting-system.js"]
     }
   ],
   "icons": {
