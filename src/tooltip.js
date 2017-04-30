@@ -4,11 +4,11 @@ document.body.appendChild(bubbleDOM);
 
 document.addEventListener('click', function (e) {
   const selection = window.getSelection().toString();
-  const querySelection = queryHighlightedWord(selection);
-  
-  if (selection.length > 0) {
-    renderBubble(e.clientX, e.clientY, querySelection);
-  }
+  queryHighlightedWord(selection, (queryResults) => {
+    if (queryResults && selection !== '') {
+      renderBubble(e.clientX, e.clientY, queryResults);
+    }
+  });
 }, false);
 
 function renderBubble(mouseX, mouseY, selection) {
@@ -20,9 +20,8 @@ function renderBubble(mouseX, mouseY, selection) {
   selectionData.definition = selectionData.definition.length > 96 ?
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
- 
-  bubbleDOM.innerHTML = `<div class="hg-tooltip-content">
-                          <h3 id="select-term">${selection.term}</h3>
+  bubbleDOM.innerHTML = `<div class="selection-bubble-content">
+                          <h3 id="select-term">${selection.search_term}</h3>
                           <p>${selection.definition}</p>
                          </div>
                          <div class="btn-bar-hg-tooltip">
@@ -37,7 +36,7 @@ function renderBubble(mouseX, mouseY, selection) {
   instance.mark(selection.term, {
     "element": "span",
     "className": "us-highlight",
-    "separateWordSearch": false 
+    "separateWordSearch": false
   });
 
   bubbleDOM.style.top = mouseY - (bubbleDOM.offsetHeight + fontSize + 10) + 'px';
