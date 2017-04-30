@@ -13,6 +13,7 @@
   height: 100%;
   background-color: rgb(255, 255, 255);
   border-right: 1px solid rgb(221, 221, 221);
+  font-family: Helvetica, sans-serif;
 }
 
 #term {
@@ -107,4 +108,5 @@ div.tab button.active {
 .us-highlight {
   background: #0095FF;
   color: #FFF;
+  padding: 2px;
 }

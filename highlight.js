@@ -7,7 +7,19 @@ window.terms = [
 
 
 //sidebar
-var sideBarHtmlString = "<div id='sidebar'><div id='term'><h1>TERM</h1> </div><div id='pic'>PICTURE </div><div id='def'><h3>The definition of the sun is this massive red ball whats gucci </h3></div></div>"
+const sideBarHtmlString = (
+  `<div id='sidebar'>
+    <div id='term'>
+      <h1>TERM</h1>
+    </div>
+    <div id='pic'>
+      <h3>PICTURE</h3>
+    </div>
+    <div id='def'>
+      <h3>The definition of the sun is this massive red ball whats gucci </h3>
+    </div>
+  </div>`
+);
 var sidebar;
 
 $(document).ready(function() {
@@ -29,11 +41,10 @@ $(document).ready(function() {
     }
   })
 
-  $('body').on('click', '#see-more-button', function() {
-    console.log('see more button');
+  $('body').on('click', '.btn-bar-hg-tooltip', function(e) {
+    $('.hg-tooltip').hide();
     sidebar.show();
-  })
-
+  });
 });
 
 

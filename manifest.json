@@ -5,10 +5,6 @@
   "permissions": [
     "tabs", "http://*/*", "https://*/*"
   ],
-  // "background": {
-  //   "scripts": ["src/eventPage.js"],
-  //   "persistent": false
-  // },
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
@@ -17,6 +13,9 @@
       "src/tooltip.js", "src/queryHighlightedWord.js","src/highlightWord.js"] 
     }
   ],
+  "icons": {
+    "16": "icon.png"
+  },
   "browser_action": {
       "default_icon": "spacetionary_logo.png"
   },

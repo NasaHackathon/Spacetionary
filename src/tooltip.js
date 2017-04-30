@@ -1,10 +1,9 @@
 const bubbleDOM = document.createElement('div');
-bubbleDOM.setAttribute('class', 'selection-bubble');
+bubbleDOM.setAttribute('class', 'hg-tooltip');
 document.body.appendChild(bubbleDOM);
 
 document.addEventListener('click', function (e) {
   const selection = window.getSelection().toString();
-  console.log(window.getSelection());
   const querySelection = queryHighlightedWord(selection);
   
   if (selection.length > 0) {
@@ -12,7 +11,6 @@ document.addEventListener('click', function (e) {
   }
 }, false);
 
-// Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
   const selectionData = selection;
   const fontSize = parseInt($(window.getSelection().anchorNode.parentElement).css('font-size'));
@@ -21,22 +19,23 @@ function renderBubble(mouseX, mouseY, selection) {
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
  
-  bubbleDOM.innerHTML = `<div class="selection-bubble-content">
+  bubbleDOM.innerHTML = `<div class="hg-tooltip-content">
                           <h3 id="select-term">${selection.term}</h3>
                           <p>${selection.definition}</p>
                          </div>
-                         <div class="btn-bar-selection-bubble">
-                          <div class="btn-bar-selection-bubble-classification">
-                            <div class="btn-selection-bubble see-more-button">👍</div>
-                            <div class="btn-selection-bubble see-more-button">👎</div>
+                         <div class="btn-bar-hg-tooltip">
+                          <div class="btn-bar-hg-tooltip-classification">
+                            <div class="btn-hg-tooltip see-more-button">👍</div>
+                            <div class="btn-hg-tooltip see-more-button">👎</div>
                           </div>
-                          <div class="btn-selection-bubble see-more-button">See more...</div>
+                          <div class="btn-hg-tooltip see-more-button">See more...</div>
                         </div>`;
 
   const instance = new Mark(window.getSelection().baseNode);
   instance.mark(selection.term, {
     "element": "span",
-    "className": "us-highlight"
+    "className": "us-highlight",
+    "separateWordSearch": false 
   });
 
   bubbleDOM.style.top = mouseY - (bubbleDOM.offsetHeight + fontSize + 10) + 'px';
