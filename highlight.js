@@ -14,8 +14,6 @@ function handleSetQuery(findWords) {
 }
 
 
-
-
 //sidebar
 var sideBarHtmlString = "<div id='sidebar'><div id='term'><h1>Sun</h1> </div><div id='pic'>PICTURE </div><div id='def'><h3>The definition of the sun is this massive red ball whats gucci </h3></div></div>"
 var sidebar;
@@ -29,7 +27,6 @@ $(document).ready(function() {
   $.ajax({
     method: 'POST',
     url: 'http://localhost:1337/api/user/words',
-    // url: 'https://fierce-hamlet-13380.herokuapp.com/api/user/words', 
     data: {body: body},
     success: function(result) {
       console.log('result in client', result);
@@ -42,7 +39,6 @@ $(document).ready(function() {
       handleSetQuery(window.terms);
     }
   })
-
 
   
   var sidebar;

@@ -137,11 +137,13 @@ div.tab button.active {
 /* Mark that as Mark.js */
 mark{
     /*background: orange;*/
-    color: black;
+    color: #FFF;
+    padding: 2px;
     z-index: 9999;
 
     /* trying to get it to work like medium */ 
-    background: linear-gradient(to bottom, rgba(172, 246, 153, 1), rgba(172, 246, 153, 1));
+    background: linear-gradient(to bottom,#0095FF, #0095FF);
+    
 }
 
 
