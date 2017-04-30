@@ -104,4 +104,7 @@ div.tab button.active {
   float: left;
 }
 
-
+.us-highlight {
+  background: #0095FF;
+  color: #FFF;
+}

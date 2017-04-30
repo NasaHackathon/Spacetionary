@@ -1,14 +1,60 @@
 .selection-bubble {
-  height: 183px;
+  max-height: 200px;
   width: 200px;
   visibility: hidden;
-  position: absolute;
-  padding: 5px;
+  position: fixed; 
   top: 0;
   left: 0;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  border: 1px solid #999;
-  background-color: #ffd;
+  color: #555;
+  box-shadow: 0 0 30px rgba(0,0,0, 0.4);
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.selection-bubble-content {
+  padding: 15px 15px 10px 15px;
+  flex: 1;
+}
+
+.btn-selection-bubble {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.see-more-button {}
+
+.btn-bar-selection-bubble {
+  border-top: 1px solid #EFEFEF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 35px;
+}
+
+.btn-bar-selection-bubble-classification {
+  flex: 1;
+  display: flex;
+  padding-left: 6px;
+}
+
+.btn-bar-selection-bubble-classification .btn-selection-bubble {
+  border-right: 1px solid #efefef;
+  font-size: 21px;
+}
+
+#select-term {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
 }
 
 .selection-bubble img {
@@ -20,22 +66,21 @@
   font-size: 14px;
 }
 
-#see-more-button {
-  color: blue;
+.see-more-button {
+  color: #0095FF;
   cursor: pointer;
   float: right;
-  font-size: 12px;
-  margin-top: 46px;
+  font-size: 14px;
 }
 
-#selected-term {
-  float: left;
-}
-
-#close-tooltip {
-  cursor: pointer;
-  float: right;
+.selection-bubble:after {
+  content: '';
+  height: 20px;
+  width: 20px;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  background: #FFFFFF;
+  transform: rotateZ(45deg) translateX(-50%);
+  bottom: -10px;
+  z-index: -1;
+  left: 50%;
 }

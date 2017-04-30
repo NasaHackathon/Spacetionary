@@ -15,16 +15,11 @@ $(document).ready(function() {
   $.ajax({
     url: chrome.extension.getURL('sideBar.html'),
     success: function(data) {
-      console.log('data', data);
       sidebar = $(data);
 
       //Need to fix tyhis code
       $('body').append(sidebar);
       sidebar.hide();
-
-
-      
-
 
       $('body').on('click', '#close', function(event) {
         event.stopPropagation();
