@@ -9,7 +9,7 @@
   left: 0px;
   top: 0px;
   z-index: 9999;
-  width: 270px;
+  width: 350px;
   height: 100%;
   background-color: rgb(255, 255, 255);
   border-right: 1px solid rgb(221, 221, 221);
@@ -93,13 +93,14 @@ div.tab button.active {
 /* Upvote and Downvote */
 
 .user_review {
-  height: 30px;
   width: 100%;
   margin: 10px 0;
-  background-color: orange;
-
+  display: flex;
+  flex-direction: row;
+  /*background-color: orange;*/
+  
 }
-.upvote_button {
+.upvote {
   height: 30px;
   width: 30px;
   float: left;
@@ -109,4 +110,25 @@ div.tab button.active {
   background: #0095FF;
   color: #FFF;
   padding: 2px;
+}
+
+.upvote_num {
+  margin-left: 7px;
+}
+
+
+/* Bobby Johnson */
+#loggedInUser {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 350px;
+  height: 40px;
+  background-color: gray
+}
+
+#loggedInUser button {
+  float: right;
+  margin-top: -20px;
+  margin-right: 10px;
 }

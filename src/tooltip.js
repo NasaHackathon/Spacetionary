@@ -15,6 +15,8 @@ function renderBubble(mouseX, mouseY, selection) {
   const selectionData = selection;
   const fontSize = parseInt($(window.getSelection().anchorNode.parentElement).css('font-size'));
 
+  window.selectionData = selectionData;
+
   selectionData.definition = selectionData.definition.length > 96 ?
                              selectionData.definition.slice(0, 94) + '...' :
                              selectionData.definition;
