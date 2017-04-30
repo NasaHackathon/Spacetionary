@@ -92,11 +92,14 @@ div.tab button.active {
 /* Upvote and Downvote */
 
 .user_review {
-  height: 30px;
   width: 100%;
   margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  /*background-color: orange;*/
+  
 }
-.upvote_button {
+.upvote {
   height: 30px;
   width: 30px;
   float: left;
@@ -106,6 +109,10 @@ div.tab button.active {
   background: #0095FF;
   color: #FFF;
 }
+.upvote_num {
+  margin-left: 7px;
+}
+
 
 /* Bobby Johnson */
 #loggedInUser {
