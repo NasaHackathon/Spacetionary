@@ -17,6 +17,9 @@
       "src/tooltip.js", "src/queryHighlightedWord.js","src/highlightWord.js"] 
     }
   ],
+  "browser_action": {
+      "default_icon": "spacetionary_logo.png"
+  },
   "manifest_version": 2,
   "web_accessible_resources": [
     "*"
