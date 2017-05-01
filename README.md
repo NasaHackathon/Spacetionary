@@ -1,5 +1,8 @@
 # Spacetionary
-Google Chrome extension that is a crowdsourced urban dictionary for science.
+Urban Dictionary for Science in your browser
+
+## DEMO
+https://www.youtube.com/watch?v=mkcSbqu1Xeg&feature=youtu.be
 
 ## Development Team
   * [Gary Wong](https://github.com/gary-w)
